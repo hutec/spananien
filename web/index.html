@@ -41,7 +41,9 @@
         const coordinates = e.lngLat;
         let names = "";
         e.features.forEach((feature) => {
-          names += `• ${feature.properties.name}<br>`;
+          const name = feature.properties.name;
+          const url = feature.properties.url;
+          names += `• <a href="${url}" target="_blank">${name}</a><br>`;
         });
 
         // Add route names to the filter in the "Route" layer
