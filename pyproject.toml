@@ -1,10 +1,10 @@
-[project]
 name = "spananien"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "geojson>=3.1.0",
     "gpxpy>=1.6.2",
 ]
 
@@ -12,3 +12,6 @@ dependencies = [
 dev = [
     "ruff>=0.8.1",
 ]
+
+[tool.ruff]
+select = ["ALL"]
