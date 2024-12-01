@@ -44,6 +44,12 @@
           names += `• ${feature.properties.name}<br>`;
         });
 
+        // Add route names to the filter in the "Route" layer
+        const routeIds = e.features.map((feature) => feature.properties.id);
+        var filters = ["all"];
+        filters.push(["in", "id", ...routeIds]);
+        map.setFilter("Route", filters);
+
         new maplibregl.Popup().setLngLat(coordinates).setHTML(names).addTo(map);
       });
     </script>
