@@ -50,7 +50,15 @@
         filters.push(["in", "id", ...routeIds]);
         map.setFilter("Route", filters);
 
-        new maplibregl.Popup().setLngLat(coordinates).setHTML(names).addTo(map);
+        // Create popup and add onClose event handler
+        new maplibregl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(names)
+          .on("close", () => {
+            // Remove the filter when popup is closed
+            map.setFilter("Route", null);
+          })
+          .addTo(map);
       });
     </script>
   </body>
