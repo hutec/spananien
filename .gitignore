@@ -1,3 +1,4 @@
 routes/
 .venv/
 routes.geojson
+tileserver-data/*

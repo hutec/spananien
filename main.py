@@ -24,7 +24,7 @@ def main():
 
     LOGGER.info("Writing geojson")
     geojson = FeatureCollection(routes)
-    with open("routes.geojson", "w") as f:
+    with open("tileserver-data/routes.geojson", "w") as f:
         json.dump(geojson, f)
 
 
