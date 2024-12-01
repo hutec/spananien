@@ -35,6 +35,29 @@
       // Add navigation controls
       map.addControl(new maplibregl.NavigationControl());
 
+      // Change the cursor to a pointer when the mouse is over the Route layer
+      map.on("mouseenter", "Route", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      // Change it back to the default cursor when it leaves the Route layer
+      map.on("mouseleave", "Route", () => {
+        // Only remove filter if no popup is open
+        if (!document.querySelector(".maplibregl-popup")) {
+          map.setFilter("Route", null);
+        }
+        map.getCanvas().style.cursor = "";
+      });
+
+      // Log features on hover
+      map.on("mousemove", "Route", (e) => {
+        // Add route names to the filter in the "Route" layer
+        const routeIds = e.features.map((feature) => feature.properties.id);
+        var filters = ["all"];
+        filters.push(["in", "id", ...routeIds]);
+        map.setFilter("Route", filters);
+      });
+
       // When a click event occurs on a feature in the AllRoutes layer, open a popup at the
       // location of the feature, with description HTML from its properties.
       map.on("click", "Route", (e) => {
