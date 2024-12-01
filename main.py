@@ -20,7 +20,13 @@ def main():
                     for segment in track.segments:
                         for point in segment.points:
                             points.append([point.longitude, point.latitude])
-                    routes.append(Feature(geometry=LineString(points)))
+
+                    routes.append(
+                        Feature(
+                            geometry=LineString(points),
+                            properties={"name": track.name},
+                        ),
+                    )
 
     LOGGER.info("Writing geojson")
     geojson = FeatureCollection(routes)
