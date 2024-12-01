@@ -1,3 +1,4 @@
+[project]
 name = "spananien"
 version = "0.1.0"
 description = "Add your description here"
@@ -10,6 +11,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "ipython>=8.18.1",
     "ruff>=0.8.1",
 ]
 
