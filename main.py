@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import uuid
 
 import gpxpy
 from geojson import Feature, FeatureCollection, LineString
@@ -24,7 +25,7 @@ def main():
                     routes.append(
                         Feature(
                             geometry=LineString(points),
-                            properties={"name": track.name},
+                            properties={"name": track.name, "id": str(uuid.uuid4())},
                         ),
                     )
 
