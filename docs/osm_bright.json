@@ -1850,7 +1850,19 @@
       "layout": { "line-cap": "butt", "visibility": "visible" },
       "paint": {
         "line-opacity": 1,
-        "line-color": "rgba(203, 110, 148, 1)",
+        "line-color": [
+          "match",
+          ["%", ["to-number", ["get", "id"]], 4],
+          0,
+          "#FF6B6B",
+          1,
+          "#4ECDC4",
+          2,
+          "#45B7D1",
+          3,
+          "#96CEB4",
+          "#FF6B6B"
+        ],
         "line-width": 4
       }
     },
